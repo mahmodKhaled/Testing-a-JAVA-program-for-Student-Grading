@@ -91,7 +91,7 @@ public class SubjectData {
     public String[] validate_student_data(String student_name, String student_number, String student_activities_mark, String oral_practical_mark, String midterm_exam_mark, String final_exam_mark){
         String[] student_data = new String[6];
         if(student_name.matches("[a-zA-Z ]+") && !student_name.startsWith(" ")){
-            student_data[0] = subject_name;
+            student_data[0] = student_name;
         }
         if(student_number.length() == 8){
             for(int i = 0; i < 7; i++){
