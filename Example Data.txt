@@ -1,0 +1,5 @@
+Mathematics,MTH101,100
+John Smith,123456,20,15,40,75
+Sarah Johnson,234567,18,17,38,82
+Michael Lee,345678,19,18,43,87
+Emily Davis,456789,17,16,39,78
