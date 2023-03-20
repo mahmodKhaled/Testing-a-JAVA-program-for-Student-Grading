@@ -1,5 +1,8 @@
-Mathematics,MTH101,100
-John Smith,123456,20,15,40,75
-Sarah Johnson,234567,18,17,38,82
-Michael Lee,345678,19,18,43,87
-Emily Davis,456789,17,16,39,78
+English,ENG101,100
+John Doe,12345678,8,9,18,50
+Jane Smith,23456789,10,8,17,52
+Bob Johnson,34567890,9,10,20,55
+Alice Lee,45678901,7,6,16,45
+Tom Brown,56789012,8,7,18,48
+Sara Davis,67890123,10,9,19,58
+David Wilson,78901234,9,8,17,53
