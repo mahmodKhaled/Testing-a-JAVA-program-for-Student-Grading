@@ -4,8 +4,9 @@ public class main {
         SubjectData subject_data = new SubjectData();
         subject_data.load_data(file_name);
         Grade grade = new Grade(subject_data);
-        grade.calculate_gpa();
         grade.calculate_grade();
+        grade.calculate_gpa();
         grade.generate_student_gradings();
+    	
     }
 }
