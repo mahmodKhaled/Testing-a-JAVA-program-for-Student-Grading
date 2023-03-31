@@ -12,7 +12,10 @@ public class main {
         Grade grade = new Grade();
         ArrayList<String> student_grades = grade.calculate_grade(student_activities_marks, oral_practical_marks, midterm_exam_marks, final_exam_marks);
         ArrayList<Float> students_GPA = grade.calculate_gpa(student_grades);
-        grade.generate_student_gradings();
-    	
+        String subject_name = subject_data.getSubjectName();
+        int full_mark = subject_data.getFullMark();
+        ArrayList<String> student_names = subject_data.getStudentNames();
+        ArrayList<String> student_numbers = subject_data.getStudentNumbers();
+        grade.generate_student_gradings(subject_name, full_mark, student_names, student_numbers, student_grades, students_GPA);
     }
 }
