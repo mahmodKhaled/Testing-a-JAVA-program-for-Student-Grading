@@ -3,27 +3,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Grade {
-    private SubjectData subject_data;
     private int GPA;
     private String Grade;
-    int SIZE;
     private ArrayList<Float>studentsGPA=new ArrayList<>();
     private ArrayList<String>studentsGrades=new ArrayList<>();
     
-    public Grade(SubjectData subject_data){
+    public Grade(){
         this.GPA = 0;
         this.Grade = "";
-        this.subject_data = subject_data;
-        SIZE=(subject_data.getStudentNames()).size();
     }
-    public void calculate_grade(){
+    public void calculate_grade(ArrayList<Integer> student_activities_marks, ArrayList<Integer> oral_practical_marks
+	, ArrayList<Integer> midterm_exam_marks, ArrayList<Integer> final_exam_marks){
     	String grade="";
     	int studentMark=0;
-    	for(int i=0;i<SIZE;i++) {
-    		int studentActivityMark=subject_data.getStudentActivitiesMarks().get(i); //0 to 10
-    		int studentOralMark=subject_data.getOralPracticalMarks().get(i); //0 to 10
-    		int studentMidtermMark=subject_data.getMidtermExamMarks().get(i); //0 to 10
-    		int studentFinalMark=subject_data.getFinalExamMarks().get(i); //0 to 10
+    	for(int i=0;i< student_activities_marks.size();i++) {
+    		int studentActivityMark= student_activities_marks.get(i); //0 to 10
+    		int studentOralMark= oral_practical_marks.get(i); //0 to 10
+    		int studentMidtermMark= midterm_exam_marks.get(i); //0 to 10
+    		int studentFinalMark= final_exam_marks.get(i); //0 to 10
     		studentMark=studentActivityMark+studentOralMark+studentMidtermMark+studentFinalMark;
     		if(studentMark>=97)
     	         grade = "A+";
