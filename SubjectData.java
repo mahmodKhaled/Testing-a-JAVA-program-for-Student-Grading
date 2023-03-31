@@ -55,7 +55,7 @@ public class SubjectData {
         }
         else if(subject_code.length() == 7){
             for(int i = 0; i < 3; i++){
-                if(Character.isLetter(subject_name.charAt(i))){
+                if(Character.isLetter(subject_code.charAt(i))){
                     continue;
                 }
                 else {
@@ -63,7 +63,7 @@ public class SubjectData {
                 }
             }
             for(int i = 3; i < 6; i++){
-                if(Character.isDigit(subject_name.charAt(i))){
+                if(Character.isDigit(subject_code.charAt(i))){
                     continue;
                 }
                 else {
