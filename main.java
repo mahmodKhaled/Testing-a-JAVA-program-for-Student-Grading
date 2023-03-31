@@ -10,8 +10,8 @@ public class main {
         ArrayList<Integer> midterm_exam_marks = subject_data.getMidtermExamMarks();
         ArrayList<Integer> final_exam_marks = subject_data.getFinalExamMarks();
         Grade grade = new Grade();
-        grade.calculate_grade(student_activities_marks, oral_practical_marks, midterm_exam_marks, final_exam_marks);
-        grade.calculate_gpa();
+        ArrayList<String> student_grades = grade.calculate_grade(student_activities_marks, oral_practical_marks, midterm_exam_marks, final_exam_marks);
+        ArrayList<Float> students_GPA = grade.calculate_gpa(student_grades);
         grade.generate_student_gradings();
     	
     }
