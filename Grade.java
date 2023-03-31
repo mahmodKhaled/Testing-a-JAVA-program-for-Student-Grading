@@ -3,16 +3,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Grade {
-    private int GPA;
-    private String Grade;
-    private ArrayList<Float>studentsGPA=new ArrayList<>();
-    private ArrayList<String>studentsGrades=new ArrayList<>();
+    private ArrayList<Float> studentsGPA;
+    private ArrayList<String> studentsGrades;
     
     public Grade(){
-        this.GPA = 0;
-        this.Grade = "";
+        this.studentsGPA = new ArrayList<>();
+		this.studentsGrades = new ArrayList<>();
     }
-    public void calculate_grade(ArrayList<Integer> student_activities_marks, ArrayList<Integer> oral_practical_marks
+    public ArrayList<String> calculate_grade(ArrayList<Integer> student_activities_marks, ArrayList<Integer> oral_practical_marks
 	, ArrayList<Integer> midterm_exam_marks, ArrayList<Integer> final_exam_marks){
     	String grade="";
     	int studentMark=0;
@@ -50,6 +48,7 @@ public class Grade {
     	    	  throw new IllegalArgumentException("the student marks aren't in range");
     		studentsGrades.add(grade);
     	}
+		return this.studentsGrades;
     }
     public void calculate_gpa(){
     	for(int i=0;i<SIZE;i++) {
