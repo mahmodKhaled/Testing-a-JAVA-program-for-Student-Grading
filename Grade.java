@@ -50,10 +50,10 @@ public class Grade {
     	}
 		return this.studentsGrades;
     }
-    public void calculate_gpa(){
-    	for(int i=0;i<SIZE;i++) {
+    public ArrayList<Float> calculate_gpa(ArrayList<String> student_grades){
+    	for(int i=0;i<student_grades.size();i++) {
     		int gpa;
-    		String grade=studentsGrades.get(i);
+    		String grade= student_grades.get(i);
     		switch(grade) {
     		case("A+"):
     			studentsGPA.add((float) 4);
@@ -93,8 +93,9 @@ public class Grade {
     		break;
     		default:
     			throw new IllegalArgumentException("unhandled gpa case."+ i+" "+grade);
-    		}	
+    		}
     	}
+		return this.studentsGPA;
     }
     public void generate_student_gradings(){
     	try {
