@@ -3,34 +3,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Grade {
-    private SubjectData subject_data;
-    private int GPA;
-    private String Grade;
-    int SIZE;
+    private ArrayList<Float> studentsGPA;
+    private ArrayList<String> studentsGrades;
     
-    private ArrayList<Float>studentsGPA=new ArrayList<>();
-    private ArrayList<String>studentsGrades=new ArrayList<>();
-    
-
-    public Grade(SubjectData subject_data){
-        this.GPA = 0;
-        this.Grade = "";
-        this.subject_data = subject_data;
-        SIZE=(subject_data.getStudentNames()).size();
+    public Grade(){
+        this.studentsGPA = new ArrayList<>();
+		this.studentsGrades = new ArrayList<>();
     }
-    
-
-    public void calculate_grade(){
+    public ArrayList<String> calculate_grade(ArrayList<Integer> student_activities_marks, ArrayList<Integer> oral_practical_marks
+	, ArrayList<Integer> midterm_exam_marks, ArrayList<Integer> final_exam_marks){
     	String grade="";
     	int studentMark=0;
-    	for(int i=0;i<SIZE;i++) {
-    		int studentActivityMark=subject_data.getStudentActivitiesMarks().get(i); //0 to 10
-    		int studentOralMark=subject_data.getOralPracticalMarks().get(i); //0 to 10
-    		int studentMidtermMark=subject_data.getMidtermExamMarks().get(i); //0 to 10
-    		int studentFinalMark=subject_data.getFinalExamMarks().get(i); //0 to 10
+    	for(int i=0;i< student_activities_marks.size();i++) {
+    		int studentActivityMark= student_activities_marks.get(i); //0 to 10
+    		int studentOralMark= oral_practical_marks.get(i); //0 to 10
+    		int studentMidtermMark= midterm_exam_marks.get(i); //0 to 10
+    		int studentFinalMark= final_exam_marks.get(i); //0 to 10
     		studentMark=studentActivityMark+studentOralMark+studentMidtermMark+studentFinalMark;
-    		
-    		
     		if(studentMark>=97)
     	         grade = "A+";
     	      else if(studentMark>=93 && studentMark<97)
@@ -57,111 +46,78 @@ public class Grade {
     	    	  grade = "F";
     	      else 
     	    	  throw new IllegalArgumentException("the student marks aren't in range");
-    	         
-    		
     		studentsGrades.add(grade);
-    		
-    		
     	}
-
+		return this.studentsGrades;
     }
-    public void calculate_gpa(){
-    	
-    	for(int i=0;i<SIZE;i++) {
+    public ArrayList<Float> calculate_gpa(ArrayList<String> student_grades){
+    	for(int i=0;i<student_grades.size();i++) {
     		int gpa;
-    		String grade=studentsGrades.get(i);
-    		
+    		String grade= student_grades.get(i);
     		switch(grade) {
-    		
     		case("A+"):
     			studentsGPA.add((float) 4);
     		break;
-    		
     		case("A"):
     			studentsGPA.add((float) 4);
     		break;
-    		
     		case("A-"):
     			studentsGPA.add((float) 3.7);
     		break;
-    		
     		case("B+"):
     			studentsGPA.add((float) 3.3);
     		break;
-    		
     		case("B"):
     			studentsGPA.add((float) 3);
     		break;
-    		
     		case("B-"):
     			studentsGPA.add((float) 2.7);
     		break;
-    		
     		case("C+"):
     			studentsGPA.add((float) 2.3);
     		break;
-    		
     		case("C"):
     			studentsGPA.add((float) 2);
     		break;
-    		
     		case("C-"):
     			studentsGPA.add((float) 1.7);
     		break;
-    		
     		case("D+"):
     			studentsGPA.add((float) 1.3);
     		break;
-    		
     		case("D"):
     			studentsGPA.add((float) 1);
     		break;
-    		
     		case("F"):
     			studentsGPA.add((float) 0);
     		break;
-    		
     		default:
     			throw new IllegalArgumentException("unhandled gpa case."+ i+" "+grade);
-    		
-    		
-    		
     		}
-    		
     	}
-
+		return this.studentsGPA;
     }
-    public void generate_student_gradings(){
+    public void generate_student_gradings(String subject_name, int full_mark, ArrayList<String> student_names
+	, ArrayList<String> student_numbers, ArrayList<String> student_grades, ArrayList<Float> student_gpa){
     	try {
     	      FileWriter myWriter = new FileWriter("output.txt");
-    	      String subjectName=subject_data.getSubjectName();
-    	      int maxMark=subject_data.getFullMark();
+    	      String subjectName = subject_name;
+    	      int maxMark = full_mark;
     	      myWriter.write("                   Subject Name:"+"                  "+subjectName +" "+"Max Mark:" +maxMark+"\n\n\n");
     	      myWriter.write("                    Student name        Student number    GPA        Grade"+"\n\n");
-    	     
-    	      for(int i=0;i<SIZE;i++) {
-    	    	  String studentName=subject_data.getStudentNames().get(i);
-    	    	  String studentNumber=subject_data.getStudentNumbers().get(i);
-    	    	  String studentGrade=studentsGrades.get(i);
-    	    	  float studentGpa=studentsGPA.get(i);
+    	      for(int i=0;i<student_names.size();i++) {
+    	    	  String studentName= student_names.get(i);
+    	    	  String studentNumber= student_numbers.get(i);
+    	    	  String studentGrade = student_grades.get(i);
+    	    	  float studentGpa = student_gpa.get(i);
     	    	  String formattedString=String.format("%32s%16s%16f%10s", studentName, studentNumber, studentGpa,studentGrade);
     	    	  myWriter.write(formattedString+"\n");
     	      }
-    	      
-    	      
-    	      
-    	      
-    	      
-    	      
-    	      
-    	      
     	      myWriter.close();
     	      System.out.println("Successfully wrote to the file.");
     	    } catch (IOException e) {
     	      System.out.println("An error occurred.");
     	      e.printStackTrace();
     	    }
-    	
-
     }
 }
