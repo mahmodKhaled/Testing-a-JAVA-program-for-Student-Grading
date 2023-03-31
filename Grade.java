@@ -97,18 +97,19 @@ public class Grade {
     	}
 		return this.studentsGPA;
     }
-    public void generate_student_gradings(){
+    public void generate_student_gradings(String subject_name, int full_mark, ArrayList<String> student_names
+	, ArrayList<String> student_numbers, ArrayList<String> student_grades, ArrayList<Float> student_gpa){
     	try {
     	      FileWriter myWriter = new FileWriter("output.txt");
-    	      String subjectName=subject_data.getSubjectName();
-    	      int maxMark=subject_data.getFullMark();
+    	      String subjectName = subject_name;
+    	      int maxMark = full_mark;
     	      myWriter.write("                   Subject Name:"+"                  "+subjectName +" "+"Max Mark:" +maxMark+"\n\n\n");
     	      myWriter.write("                    Student name        Student number    GPA        Grade"+"\n\n");
-    	      for(int i=0;i<SIZE;i++) {
-    	    	  String studentName=subject_data.getStudentNames().get(i);
-    	    	  String studentNumber=subject_data.getStudentNumbers().get(i);
-    	    	  String studentGrade=studentsGrades.get(i);
-    	    	  float studentGpa=studentsGPA.get(i);
+    	      for(int i=0;i<student_names.size();i++) {
+    	    	  String studentName= student_names.get(i);
+    	    	  String studentNumber= student_numbers.get(i);
+    	    	  String studentGrade = student_grades.get(i);
+    	    	  float studentGpa = student_gpa.get(i);
     	    	  String formattedString=String.format("%32s%16s%16f%10s", studentName, studentNumber, studentGpa,studentGrade);
     	    	  myWriter.write(formattedString+"\n");
     	      }
