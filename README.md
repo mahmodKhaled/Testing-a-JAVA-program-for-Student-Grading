@@ -62,3 +62,13 @@ input is fulfilling the requirement before any processing.
 2. You need to test each unit of your application separately. 
 3. White box, data flow and black bock testing are required 
 4. Integration testing is required as well
+
+## Milestones
+
+### First milestone
+
+1. The first version of the application. 
+2. Set of test case to test each of the units that validate the input data and the 
+calculation of the GPA and the grade of the student separately. 
+3. Use Juint to create your testcases 
+4. Use one of the testcase templates documents to descript your test cases
