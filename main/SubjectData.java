@@ -1,3 +1,4 @@
+package main;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -92,6 +93,9 @@ public class SubjectData {
         String[] student_data = new String[6];
         if(student_name.matches("[a-zA-Z ]+") && !student_name.startsWith(" ")){
             student_data[0] = student_name;
+        }
+        else{
+            throw new IllegalArgumentException("Please enter appropriate Student Name.");
         }
         if(student_number.length() == 8){
             for(int i = 0; i < 7; i++){
