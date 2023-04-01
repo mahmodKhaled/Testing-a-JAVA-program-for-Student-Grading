@@ -11,6 +11,40 @@ public class Grade {
         this.studentsGPA = new ArrayList<>();
 		this.studentsGrades = new ArrayList<>();
     }
+
+	public String marks_to_grade(int studentMark) {
+		String grade="";
+		if(studentMark>=97 && studentMark<=100)
+			grade = "A+";
+		else if(studentMark>=93 && studentMark<97)
+			grade = "A";
+		else if(studentMark>=89 && studentMark<93)
+			grade = "A-";
+		else if(studentMark>=84 && studentMark<89)
+			grade = "B+";
+		else if(studentMark>=80 && studentMark<84)
+			grade = "B";
+		else if(studentMark>=76 && studentMark<80)
+			grade = "B-";
+		else if(studentMark>=73 && studentMark<76)
+			grade = "C+";
+		else if(studentMark>=70 && studentMark<73)
+			grade = "C";
+		else if(studentMark>=67 && studentMark<70)
+			grade = "C-";
+		else if(studentMark>=64 && studentMark<67)
+			grade = "D+";
+		else if(studentMark>=60 && studentMark<64)
+			grade = "D";
+		else if(studentMark<60)
+			grade = "F";
+		else 
+			throw new IllegalArgumentException("the student marks aren't in range");
+			
+		
+		return grade;
+	}	
+
     public ArrayList<String> calculate_grade(ArrayList<Integer> student_activities_marks, ArrayList<Integer> oral_practical_marks
 	, ArrayList<Integer> midterm_exam_marks, ArrayList<Integer> final_exam_marks){
     	String grade="";
@@ -21,32 +55,7 @@ public class Grade {
     		int studentMidtermMark= midterm_exam_marks.get(i); //0 to 10
     		int studentFinalMark= final_exam_marks.get(i); //0 to 10
     		studentMark=studentActivityMark+studentOralMark+studentMidtermMark+studentFinalMark;
-    		if(studentMark>=97)
-    	         grade = "A+";
-    	      else if(studentMark>=93 && studentMark<97)
-    	         grade = "A";
-    	      else if(studentMark>=89 && studentMark<93)
-    	         grade = "A-";
-    	      else if(studentMark>=84 && studentMark<89)
-    	         grade = "B+";
-    	      else if(studentMark>=80 && studentMark<84)
-    	         grade = "B";
-    	      else if(studentMark>=76 && studentMark<80)
-    	         grade = "B-";
-    	      else if(studentMark>=73 && studentMark<76)
-    	         grade = "C+";
-    	      else if(studentMark>=70 && studentMark<73)
-    	         grade = "C";
-    	      else if(studentMark>=67 && studentMark<70)
-    	         grade = "C-";
-    	      else if(studentMark>=64 && studentMark<67)
-    	         grade = "D+";
-    	      else if(studentMark>=60 && studentMark<64)
-    	         grade = "D";
-    	      else if(studentMark<60)
-    	    	  grade = "F";
-    	      else 
-    	    	  throw new IllegalArgumentException("the student marks aren't in range");
+    		grade = marks_to_grade(studentMark);
     		studentsGrades.add(grade);
     	}
 		return this.studentsGrades;
