@@ -1,0 +1,30 @@
+﻿Test case #,Scenario Description,Req #,Test Data,Expected Results,Actual Results,Pass (Y/N)
+1,Subject Name with spaces,1,"{""Data Structures"", ""CSE220"", ""100""}",,,Y
+2,Subject,,,,,Y
+3,Subject,,,,,Y
+4,Subject,,,,,Y
+5,Subject,,,,,Y
+6,Subject,,,,,Y
+7,Subject,,,,,Y
+8,Subject,,,,,Y
+9,Subject,,,,,Y
+10,Subject,,,,,Y
+11,Subject,,,,,Y
+12,Subject,,,,,Y
+13,,,,,,Y
+14,,,,,,Y
+15,,,,,,Y
+16,,,,,,Y
+17,,,,,,Y
+18,,,,,,Y
+19,,,,,,Y
+20,,,,,,Y
+21,,,,,,Y
+22,,,,,,Y
+23,,,,,,Y
+24,,,,,,Y
+25,,,,,,Y
+26,,,,,,Y
+27,,,,,,Y
+28,,,,,,Y
+29,,,,,,Y

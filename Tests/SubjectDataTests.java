@@ -212,4 +212,113 @@ public class SubjectDataTests {
         String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "201800nn", "10", "10", "10", "10");
         assertArrayEquals(null, student_data_array);
     }
+
+
+    /*
+     * Requirement 6,7,8,9
+     * student_activity_mark with 0
+     * oral_practical_mark with 0
+     * midterm_exam_mark with 0
+     * final_exam_mark with 0
+     */
+    @Test
+    public void test_validate_student_data_marks_with_0(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "0", "0", "0", "0");
+        String[] expected_data = {"Eren Yeager", "20180001", "0","0","0","0"};
+        assertArrayEquals(expected_data, student_data_array);
+    }
+
+    /*
+     * Requirement 6,7,8,9
+     * student_activity_mark with 10
+     * oral_practical_mark with 10
+     * midterm_exam_mark with 20
+     * final_exam_mark with 60
+     */
+    @Test
+    public void test_validate_student_data_marks_with_10_10_20_60(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "10", "20", "60");
+        String[] expected_data = {"Eren Yeager", "20180001", "10","10","20","60"};
+        assertArrayEquals(expected_data, student_data_array);
+    }
+
+
+    // Requirement 6 student_activity_mark with 11
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_student_activity_mark_with_11(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "11", "10", "20", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // Requirement 6 student_activity_mark with -1
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_student_activity_mark_with_minus_1(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "-1", "10", "20", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // Requirement 7 oral_practical_mark with 11
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_oral_practical_mark_with_11(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "11", "20", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+
+    // Requirement 7 oral_practical_mark with -1
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_oral_practical_mark_with_minus_1(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "-1", "20", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // Requirement 8 midterm_exam_mark with 21
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_midterm_exam_mark_with_21(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "10", "21", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // Requirement 8 midterm_exam_mark with -1
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_midterm_exam_mark_with_minus_1(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "10", "-1", "60");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // Requirement 9 final_exam_mark with 61
+    // It should throw an IllegalArgumentException
+    @Test(expected = IllegalArgumentException.class)
+    public void test_validate_student_data_final_exam_mark_with_61(){
+        SubjectData subject_data = new SubjectData();
+        String[] student_data_array = subject_data.validate_student_data("Eren Yeager", "20180001", "10", "10", "20", "61");
+        assertArrayEquals(null, student_data_array);
+    }
+
+    // All tests passed successfully
+    // Export to CSV file
+
+
+    // csv test cases as the tests above
+    /*
+        Test case #,Scenario Description,Req #,Test Data,Expected Results,Actual Results,Pass (Y/N)
+        1,Sub
+
+
+     */
+
 }
