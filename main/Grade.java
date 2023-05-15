@@ -40,8 +40,6 @@ public class Grade {
 			grade = "F";
 		else 
 			throw new IllegalArgumentException("the student marks aren't in range");
-			
-		
 		return grade;
 	}	
 
