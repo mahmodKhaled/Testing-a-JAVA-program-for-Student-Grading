@@ -3,9 +3,12 @@ import java.util.ArrayList;
 
 public class main {
     public static void main(String[] args){
-        String file_name = "src/Example Data.txt";
+        if (args.length != 1){
+            args = new String[1];
+            args[0] = "src/Example Data.txt";
+        }
         SubjectData subject_data = new SubjectData();
-        subject_data.load_data(file_name);
+        subject_data.load_data(args[0]);
         System.out.println("Successfully loaded and validated the data from Example Data file.");
         ArrayList<Integer> student_activities_marks = subject_data.getStudentActivitiesMarks();
         ArrayList<Integer> oral_practical_marks = subject_data.getOralPracticalMarks();
