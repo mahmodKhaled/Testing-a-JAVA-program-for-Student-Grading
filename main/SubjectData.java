@@ -142,7 +142,7 @@ public class SubjectData {
         }
         return student_data;
     }
-    public void load_data(String file_name){
+    public boolean load_data(String file_name){
         String line;
         boolean subject_flag = true;
         try
@@ -170,10 +170,12 @@ public class SubjectData {
                 this.final_exam_marks.add(Integer.parseInt(validated_student_data[5]));
             }
             buffer_read.close();
+            return true;
         }
         catch(IOException e)
         {
             System.out.println("Exception: " + e);
+            return false;
         }
     }
     public String getSubjectName() {
