@@ -60,7 +60,6 @@ public class Grade {
     }
     public ArrayList<Float> calculate_gpa(ArrayList<String> student_grades){
     	for(int i=0;i<student_grades.size();i++) {
-    		int gpa;
     		String grade= student_grades.get(i);
     		switch(grade) {
     		case("A+"):
