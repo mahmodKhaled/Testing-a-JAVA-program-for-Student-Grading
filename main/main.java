@@ -6,6 +6,7 @@ public class main {
         String file_name = "src/Example Data.txt";
         SubjectData subject_data = new SubjectData();
         subject_data.load_data(file_name);
+        System.out.println("Successfully loaded and validated the data from Example Data file.");
         ArrayList<Integer> student_activities_marks = subject_data.getStudentActivitiesMarks();
         ArrayList<Integer> oral_practical_marks = subject_data.getOralPracticalMarks();
         ArrayList<Integer> midterm_exam_marks = subject_data.getMidtermExamMarks();
@@ -13,6 +14,7 @@ public class main {
         Grade grade = new Grade();
         ArrayList<String> student_grades = grade.calculate_grade(student_activities_marks, oral_practical_marks, midterm_exam_marks, final_exam_marks);
         ArrayList<Float> students_GPA = grade.calculate_gpa(student_grades);
+        System.out.println("Successfully calculated the grades and GPA for each student.");
         String subject_name = subject_data.getSubjectName();
         int full_mark = subject_data.getFullMark();
         ArrayList<String> student_names = subject_data.getStudentNames();
