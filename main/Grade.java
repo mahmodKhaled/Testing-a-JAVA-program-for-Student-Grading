@@ -111,7 +111,7 @@ public class Grade {
     	      FileWriter myWriter = new FileWriter("output.txt");
     	      String subjectName = subject_name;
     	      int maxMark = full_mark;
-    	      myWriter.write("                   Subject Name:"+"                  "+subjectName +" "+"Max Mark:" +maxMark+"\n\n\n");
+    	      myWriter.write("                   Subject Name:"+subjectName +"\t\t\t\t"+"Max Mark:" +maxMark+"\n\n\n");
     	      myWriter.write("                    Student name        Student number    GPA        Grade"+"\n\n");
     	      for(int i=0;i<student_names.size();i++) {
     	    	  String studentName= student_names.get(i);
