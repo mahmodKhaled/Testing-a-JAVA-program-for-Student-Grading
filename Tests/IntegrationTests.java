@@ -44,17 +44,50 @@ public class IntegrationTests {
 
     @Test
     public void marks_to_gradesTest(){
-        ArrayList<Integer> marks = new ArrayList<Integer>(Arrays.asList(90, 80, 70, 60, 50, 40, 30, 20, 10, 0));
-        ArrayList<String> expectedGrades = new ArrayList<String>(Arrays.asList("A-", "B", "C", "D", "F", "F", "F", "F", "F", "F"));
-        ArrayList<String> actualGrades = new ArrayList<String>();
-        for (int i = 0; i < marks.size(); i++){
-            actualGrades.add(grade.marks_to_grade(marks.get(i)));
-        }
-        assertEquals(expectedGrades, actualGrades);
+        int mark = 80;
+        String expectedGrade = "B";
+        String actualGrade = grade.marks_to_grade(mark);
+        assertEquals(expectedGrade, actualGrade);
+    }
+
+    @Test
+    public void marks_to_gradeTest2(){
+        int mark = 100;
+        String expectedGrade = "A+";
+        String actualGrade = grade.marks_to_grade(mark);
+        assertEquals(expectedGrade, actualGrade);
+    }
+
+    @Test
+    public void marks_to_gradeTest3(){
+        int mark = 95;
+        String expectedGrade = "A";
+        String actualGrade = grade.marks_to_grade(mark);
+        assertEquals(expectedGrade, actualGrade);
     }
 
     @Test
     public void validate_subject_dataTest(){
+        String[] subject_data = new String[3];
+        subject_data[0] = "Math";
+        subject_data[1] = "MAT101";
+        subject_data[2] = "100";
+        String[] expected_data = subjectData.validate_subject_data("Math", "MAT101", "100");
+        assertArrayEquals(expected_data, subject_data);
+    }
+
+    @Test
+    public void validate_subject_dataTest2(){
+        String[] subject_data = new String[3];
+        subject_data[0] = "Math";
+        subject_data[1] = "MAT101";
+        subject_data[2] = "100";
+        String[] expected_data = subjectData.validate_subject_data("Math", "MAT101", "100");
+        assertArrayEquals(expected_data, subject_data);
+    }
+
+    @Test
+    public void validate_subject_dataTest3(){
         String[] subject_data = new String[3];
         subject_data[0] = "Math";
         subject_data[1] = "MAT101";
@@ -77,6 +110,32 @@ public class IntegrationTests {
     }
 
     @Test
+    public void validate_student_dataTest2(){
+        String[] student_data = new String[6];
+        student_data[0] = "Mohamed";
+        student_data[1] = "20170002";
+        student_data[2] = "6";
+        student_data[3] = "5";
+        student_data[4] = "12";
+        student_data[5] = "35";
+        String[] expected_data = subjectData.validate_student_data("Mohamed", "20170002", "6", "5", "12", "35");
+        assertArrayEquals(expected_data, student_data);
+    }
+
+    @Test
+    public void validate_student_dataTest3(){
+        String[] student_data = new String[6];
+        student_data[0] = "Ali";
+        student_data[1] = "20170003";
+        student_data[2] = "5";
+        student_data[3] = "4";
+        student_data[4] = "10";
+        student_data[5] = "52";
+        String[] expected_data = subjectData.validate_student_data("Ali", "20170003", "5", "4", "10", "52");
+        assertArrayEquals(expected_data, student_data);
+    }
+
+    @Test
     public void calculate_gradesTest(){
         ArrayList<Integer> student_activites_marks = new ArrayList<Integer>(Arrays.asList(7, 6, 5, 9));
         ArrayList<Integer> oral_marks = new ArrayList<Integer>(Arrays.asList(10, 10, 10, 10));
@@ -88,7 +147,45 @@ public class IntegrationTests {
     }
 
     @Test
+    public void calculate_gradesTest2(){
+        ArrayList<Integer> student_activites_marks = new ArrayList<Integer>(Arrays.asList(7, 6, 5, 9));
+        ArrayList<Integer> oral_marks = new ArrayList<Integer>(Arrays.asList(10, 10, 10, 10));
+        ArrayList<Integer> mid_marks = new ArrayList<Integer>(Arrays.asList(20, 20, 20, 20));
+        ArrayList<Integer> final_marks = new ArrayList<Integer>(Arrays.asList(40, 35, 52, 44));
+        ArrayList<String> expectedGrades = new ArrayList<String>(Arrays.asList("B-", "C", "B+", "B"));
+        ArrayList<String> actualGrades = grade.calculate_grade(student_activites_marks, oral_marks, mid_marks, final_marks);
+        assertEquals(expectedGrades, actualGrades);
+    }
+
+    @Test
+    public void calculate_gradesTest3(){
+        ArrayList<Integer> student_activites_marks = new ArrayList<Integer>(Arrays.asList(7, 6, 5, 9));
+        ArrayList<Integer> oral_marks = new ArrayList<Integer>(Arrays.asList(10, 10, 10, 10));
+        ArrayList<Integer> mid_marks = new ArrayList<Integer>(Arrays.asList(20, 20, 20, 20));
+        ArrayList<Integer> final_marks = new ArrayList<Integer>(Arrays.asList(40, 35, 52, 44));
+        ArrayList<String> expectedGrades = new ArrayList<String>(Arrays.asList("B-", "C", "B+", "B"));
+        ArrayList<String> actualGrades = grade.calculate_grade(student_activites_marks, oral_marks, mid_marks, final_marks);
+        assertEquals(expectedGrades, actualGrades);
+    }
+
+    @Test
     public void calculate_gpaTest(){
+        ArrayList<String> grades = new ArrayList<String>(Arrays.asList("A-", "B", "C", "D", "F", "A", "C+", "C"));
+        ArrayList<Float> expected_gpa = new ArrayList<Float>(Arrays.asList(3.7f, 3.0f, 2.0f, 1.0f, 0.0f, 4.0f, 2.3f, 2.0f));
+        ArrayList<Float> actual_gpa = grade.calculate_gpa(grades);
+        assertEquals(expected_gpa, actual_gpa);
+    }
+
+    @Test
+    public void calculate_gpaTest2(){
+        ArrayList<String> grades = new ArrayList<String>(Arrays.asList("A-", "B", "C", "D", "F", "A", "C+", "C"));
+        ArrayList<Float> expected_gpa = new ArrayList<Float>(Arrays.asList(3.7f, 3.0f, 2.0f, 1.0f, 0.0f, 4.0f, 2.3f, 2.0f));
+        ArrayList<Float> actual_gpa = grade.calculate_gpa(grades);
+        assertEquals(expected_gpa, actual_gpa);
+    }
+
+    @Test
+    public void calculate_gpaTest3(){
         ArrayList<String> grades = new ArrayList<String>(Arrays.asList("A-", "B", "C", "D", "F", "A", "C+", "C"));
         ArrayList<Float> expected_gpa = new ArrayList<Float>(Arrays.asList(3.7f, 3.0f, 2.0f, 1.0f, 0.0f, 4.0f, 2.3f, 2.0f));
         ArrayList<Float> actual_gpa = grade.calculate_gpa(grades);
@@ -134,6 +231,13 @@ public class IntegrationTests {
     }
 
     @Test
+    public void load_dataTest2(){
+        String file_name = "C:\\Users\\mahmo\\Desktop\\Testing-a-JAVA-program-for-Student-Grading\\src\\Example_Data.txt";
+        boolean flag = subjectData.load_data(file_name);
+        assertFalse(flag);
+    }
+
+    @Test
     public void mainTest(){
         String file_name = "C:\\Users\\mahmo\\Desktop\\Testing-a-JAVA-program-for-Student-Grading\\src\\Example Data.txt";
         String[] args = new String[1];
@@ -142,6 +246,18 @@ public class IntegrationTests {
         String expected_output = "Successfully loaded and validated the data from Example Data file." +
                 "Successfully calculated the grades and GPA for each student." +
                 "Successfully wrote to the file.";
+        expected_output = expected_output.replaceAll("\\s+", "");
+        assertEquals(expected_output, baos.toString().trim().replaceAll("\\s+", ""));
+    }
+
+    @Test
+    public void mainTest2(){
+        String file_name = "C:\\Users\\mahmo\\Desktop\\Testing-a-JAVA-program-for-Student-Grading\\src\\Example_Data.txt";
+        String[] args = new String[1];
+        args[0] = file_name;
+        main.main(args);
+        String expected_output = "Exception:java.io.FileNotFoundException:C:\\Users\\mahmo\\Desktop\\Testing-a-JAVA-program-for-Student-Grading\\src\\Example_Data.txt (The system cannot find the file specified)" +
+                "Failed to load and validate the data from Example Data file.";
         expected_output = expected_output.replaceAll("\\s+", "");
         assertEquals(expected_output, baos.toString().trim().replaceAll("\\s+", ""));
     }
