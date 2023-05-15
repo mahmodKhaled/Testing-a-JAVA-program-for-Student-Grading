@@ -111,7 +111,7 @@ public class IntegrationTests {
     @Test
     public void load_dataTest(){
         String file_name = "C:\\Users\\mahmo\\Desktop\\Testing-a-JAVA-program-for-Student-Grading\\src\\Example Data.txt";
-        subjectData.load_data(file_name);
+        boolean flag = subjectData.load_data(file_name);
         ArrayList<Integer> student_activities_marks = subjectData.getStudentActivitiesMarks();
         ArrayList<Integer> oral_practical_marks = subjectData.getOralPracticalMarks();
         ArrayList<Integer> midterm_exam_marks = subjectData.getMidtermExamMarks();
@@ -124,12 +124,13 @@ public class IntegrationTests {
         ArrayList<Integer> expected_final_exam_marks = new ArrayList<Integer>(Arrays.asList(50, 52, 55, 45, 48, 58, 53));
         ArrayList<String> expected_student_names = new ArrayList<String>(Arrays.asList("John Doe", "Jane Smith", "Bob Johnson", "Alice Lee", "Tom Brown", "Sara Davis", "David Wilson"));
         ArrayList<String> expected_student_numbers = new ArrayList<String>(Arrays.asList("12345678", "23456789", "34567890", "45678901", "56789012", "67890123", "78901234"));
-        //assertEquals(expected_student_activities_marks, student_activities_marks);
+        assertEquals(expected_student_activities_marks, student_activities_marks);
         assertEquals(expected_oral_practical_marks, oral_practical_marks);
         assertEquals(expected_midterm_exam_marks, midterm_exam_marks);
         assertEquals(expected_final_exam_marks, final_exam_marks);
         assertEquals(expected_student_names, student_names);
         assertEquals(expected_student_numbers, student_numbers);
+        assertTrue(flag);
     }
 
     @Test
