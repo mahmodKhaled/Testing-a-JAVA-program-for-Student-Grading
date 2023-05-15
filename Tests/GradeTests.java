@@ -3,7 +3,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import main.Grade;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GradeTests {
     /*
