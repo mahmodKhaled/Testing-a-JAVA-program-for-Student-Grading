@@ -36,7 +36,7 @@ public class Grade {
 			grade = "D+";
 		else if(studentMark>=60 && studentMark<64)
 			grade = "D";
-		else if(studentMark<60)
+		else if(studentMark<60 && studentMark>=0)
 			grade = "F";
 		else 
 			throw new IllegalArgumentException("the student marks aren't in range");
