@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import main.Grade;
 
-class calculate_grade_CFG {
+public class calculate_grade_CFG {
 	Grade grade=new Grade();
 	@Test
 	
