@@ -6,14 +6,14 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import main.SubjectData;
 
-class validate_subject_data_BranchWhiteBox {
+public class validate_subject_data_BranchWhiteBox {
 	
 	SubjectData subjectData=new SubjectData();
 	
 	
 
 	@Test
-	void correctDataWithSixCharactersTest() {
+	public void correctDataWithSixCharactersTest() {
 		String[] validated_subject_data = subjectData.validate_subject_data(
 				"English", "ENG101", "100"
 						);
@@ -28,7 +28,7 @@ class validate_subject_data_BranchWhiteBox {
 	
 	
 	@Test
-	void wrongSubjectNameTest() {
+	public void wrongSubjectNameTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				" Eng2ish", "ENG101", "100"
@@ -38,7 +38,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongSubjectLettersCodeTest() {
+	public void wrongSubjectLettersCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "E0G101", "100"
@@ -48,7 +48,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongSubjectNumbersCodeTest() {
+	public void wrongSubjectNumbersCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "ENG1N1", "100"
@@ -58,7 +58,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void correctDataWithSevenLettersSubjectCodeTest() {
+	public void correctDataWithSevenLettersSubjectCodeTest() {
 		String[] validated_subject_data = subjectData.validate_subject_data(
 				"English", "ENG101s", "100"
 						);
@@ -71,7 +71,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongSubjectWithSevenLettersCodeTest() {
+	public void wrongSubjectWithSevenLettersCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "E0G101s", "100"
@@ -81,7 +81,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongSubjectNumbersWithSevenCharactersCodeTest() {
+	public void wrongSubjectNumbersWithSevenCharactersCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "ENG1N1s", "100"
@@ -91,7 +91,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongLastCharacterWithSevenCharactersCodeTest() {
+	public void wrongLastCharacterWithSevenCharactersCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "ENG101p", "100"
@@ -101,7 +101,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void tooLongSuubjectCodeCodeTest() {
+	public void tooLongSuubjectCodeCodeTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "ENG101sss", "100"
@@ -111,7 +111,7 @@ class validate_subject_data_BranchWhiteBox {
 	}
 	
 	@Test
-	void wrongFullMarkTest() {
+	public void wrongFullMarkTest() {
 
 		Exception exception = assertThrows(Exception.class, () -> subjectData.validate_subject_data(
 				"English", "ENG101s", "60"
