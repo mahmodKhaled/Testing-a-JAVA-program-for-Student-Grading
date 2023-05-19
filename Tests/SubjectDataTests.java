@@ -309,16 +309,5 @@ public class SubjectDataTests {
         assertArrayEquals(null, student_data_array);
     }
 
-    // All tests passed successfully
-    // Export to CSV file
-
-
-    // csv test cases as the tests above
-    /*
-        Test case #,Scenario Description,Req #,Test Data,Expected Results,Actual Results,Pass (Y/N)
-        1,Sub
-
-
-     */
 
 }
