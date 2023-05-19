@@ -1,11 +1,9 @@
 package Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.util.Arrays;
-
-import org.junit.jupiter.api.Test;
-
 import main.SubjectData;
 
 class validate_subject_data_BranchWhiteBox {
