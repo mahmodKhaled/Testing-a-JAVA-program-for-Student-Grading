@@ -27,50 +27,50 @@ public class WhiteBoxTestingGradeStatmentCoverage {
     /* ******************************************************************************************************/
     public void testAPlusGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(100);
-        assertEquals("A+", grade);
+        String student_grade = grade.marks_to_grade(100);
+        assertEquals("A+", student_grade);
     }
 
     @Test
     public void testAGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(93);
-        assertEquals("A", grade);
+        String student_grade = grade.marks_to_grade(93);
+        assertEquals("A", student_grade);
     }
 
     @Test
     public void testBPlusGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(85);
-        assertEquals("B+", grade);
+        String student_grade = grade.marks_to_grade(85);
+        assertEquals("B+", student_grade);
     }
 
     @Test
     public void testBGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(82);
-        assertEquals("B", grade);
+        String student_grade = grade.marks_to_grade(82);
+        assertEquals("B", student_grade);
     }
 
     @Test
     public void testCMinusGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(69);
-        assertEquals("C-", grade);
+        String student_grade = grade.marks_to_grade(69);
+        assertEquals("C-", student_grade);
     }
 
     @Test
     public void testDGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(61);
-        assertEquals("D", grade);
+        String student_grade = grade.marks_to_grade(61);
+        assertEquals("D", student_grade);
     }
 
     @Test
     public void testFGrade() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(30);
-        assertEquals("F", grade);
+        String student_grade = grade.marks_to_grade(30);
+        assertEquals("F", student_grade);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -82,15 +82,15 @@ public class WhiteBoxTestingGradeStatmentCoverage {
     @Test
     public void testLowerBoundary() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(0);
-        assertEquals("F", grade);
+        String student_grade = grade.marks_to_grade(0);
+        assertEquals("F", student_grade);
     }
 
     @Test
     public void testUpperBoundary() {
         Grade grade = new Grade();
-        String grade = grade.marks_to_grade(97);
-        assertEquals("A+", grade);
+        String student_grade = grade.marks_to_grade(97);
+        assertEquals("A+", student_grade);
     }
 
     
