@@ -9,7 +9,7 @@ public class calculate_grade_CFG {
 	Grade grade=new Grade();
 	@Test
 	
-	void forLoopPathTest() 
+	public void forLoopPathTest() 
 	{
 		ArrayList<Integer> student_activities_marks=new ArrayList<Integer>();
 		student_activities_marks.add(8);
@@ -32,7 +32,7 @@ public class calculate_grade_CFG {
 	
 	@Test
 	
-	void emptyArrayListTest() 
+	public void emptyArrayListTest() 
 	{
 		ArrayList<Integer> student_activities_marks=new ArrayList<Integer>();
 		
