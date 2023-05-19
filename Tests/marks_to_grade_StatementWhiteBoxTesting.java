@@ -6,11 +6,11 @@ import static org.junit.Assert.*;
 
 import main.Grade;
 
-class marks_to_grade_StatementWhiteBoxTesting {
+public class marks_to_grade_StatementWhiteBoxTesting {
 	Grade grade=new Grade();
 	String studentGrade;
 	@Test
-	void APlusTest() {
+	public void APlusTest() {
 		
 		studentGrade=grade.marks_to_grade(100);
 		assertEquals(studentGrade,"A+");
@@ -18,46 +18,46 @@ class marks_to_grade_StatementWhiteBoxTesting {
 	}
 	
 	@Test
-	void ATest() {
+	public void ATest() {
 		studentGrade=grade.marks_to_grade(95);
 		assertEquals(studentGrade,"A");
 	}
 	
 	@Test
-	void AMinusTest() {
+	public void AMinusTest() {
 		
 		studentGrade=grade.marks_to_grade(90);
 		assertEquals(studentGrade,"A-");
 	}
 	
 	@Test
-	void BPlusTest() {
+	public void BPlusTest() {
 		
 		studentGrade=grade.marks_to_grade(85);
 		assertEquals(studentGrade,"B+");
 	}
 	
 	@Test
-	void BTest() {
+	public void BTest() {
 		
 		studentGrade=grade.marks_to_grade(80);
 		assertEquals(studentGrade,"B");
 	}
 	
 	@Test
-	void BMinusTest() {
+	public void BMinusTest() {
 		studentGrade=grade.marks_to_grade(78);
 		assertEquals(studentGrade,"B-");
 	}
 	
 	@Test
-	void CPlusTest() {
+	public void CPlusTest() {
 		studentGrade=grade.marks_to_grade(74);
 		assertEquals(studentGrade,"C+");
 	}
 	
 	@Test
-	void CTest() {
+	public void CTest() {
 		
 		studentGrade=grade.marks_to_grade(71);
 		assertEquals(studentGrade,"C");
@@ -65,35 +65,35 @@ class marks_to_grade_StatementWhiteBoxTesting {
 	}
 	
 	@Test
-	void CMniusTest() {
+	public void CMniusTest() {
 		
 		studentGrade=grade.marks_to_grade(68);
 		assertEquals(studentGrade,"C-");
 	}
 	
 	@Test
-	void DPlusTest() {
+	public void DPlusTest() {
 		
 		studentGrade=grade.marks_to_grade(65);
 		assertEquals(studentGrade,"D+");
 	}
 	
 	@Test
-	void DTest() {
+	public void DTest() {
 		
 		studentGrade=grade.marks_to_grade(61);
 		assertEquals(studentGrade,"D");
 	}
 	
 	@Test
-	void FTest() {
+	public void FTest() {
 		
 		studentGrade=grade.marks_to_grade(50);
 		assertEquals(studentGrade,"F");
 	}
 	
 	@Test
-	void outOfRangeTest() {
+	public void outOfRangeTest() {
 		
 		Exception exception = assertThrows(Exception.class, () -> grade.marks_to_grade(150));
 		assertEquals("the student marks aren't in range", exception.getMessage());
